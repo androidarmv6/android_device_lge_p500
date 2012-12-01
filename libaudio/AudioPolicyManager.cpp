@@ -142,7 +142,7 @@ uint32_t AudioPolicyManager::getDeviceForStrategy(routing_strategy strategy, boo
             break;
         }
         // FALL THROUGH
-
+/*
     case STRATEGY_ENFORCED_AUDIBLE:
         // strategy STRATEGY_ENFORCED_AUDIBLE uses same routing policy as STRATEGY_SONIFICATION
         // except when in call where it doesn't default to STRATEGY_PHONE behavior
@@ -153,7 +153,7 @@ uint32_t AudioPolicyManager::getDeviceForStrategy(routing_strategy strategy, boo
         }
         // The second device used for sonification is the same as the device used by media strategy
         // FALL THROUGH
-
+*/
     case STRATEGY_MEDIA: {
 #ifdef HAVE_FM_RADIO
         uint32_t device2 = 0;
@@ -196,12 +196,8 @@ uint32_t AudioPolicyManager::getDeviceForStrategy(routing_strategy strategy, boo
             device2 = mAvailableOutputDevices & AudioSystem::DEVICE_OUT_EARPIECE;
         }
 
-        // device is DEVICE_OUT_SPEAKER if we come from case STRATEGY_SONIFICATION or
-        // STRATEGY_ENFORCED_AUDIBLE, 0 otherwise
-        device = device ? device : device2;
-        if (device == 0) {
-            LOGE("getDeviceForStrategy() speaker device not found");
-        }
+        // device is DEVICE_OUT_SPEAKER if we come from case STRATEGY_SONIFICATION
+        device |= device2;
 
 #ifdef HAVE_FM_RADIO
         if (mAvailableOutputDevices & AudioSystem::DEVICE_OUT_FM) {
