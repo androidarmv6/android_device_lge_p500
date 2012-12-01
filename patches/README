@@ -1,0 +1,5 @@
+This is patch directory (except Settings & frameworks/base)
+
+cd WORKING_DIR
+sh device/lge/p500/patches/install.sh
+sh device/lge/p500/patches/uninstall.sh

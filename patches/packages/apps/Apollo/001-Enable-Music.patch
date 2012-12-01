@@ -1,0 +1,13 @@
+diff --git a/Android.mk b/Android.mk
+index 638e21b..f5a1e38 100644
+--- a/Android.mk
++++ b/Android.mk
+@@ -12,7 +12,7 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
+
+ LOCAL_PACKAGE_NAME := Apollo
+
+-LOCAL_OVERRIDES_PACKAGES := Music
++#LOCAL_OVERRIDES_PACKAGES := Music
+
+ LOCAL_SDK_VERSION := current
+
