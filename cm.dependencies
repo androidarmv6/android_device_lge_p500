@@ -1,0 +1,12 @@
+[
+ {
+   "repository": "vendor_lge_p500",
+   "target_path": "vendor/lge/p500",
+   "branch": "ics"
+ },
+ {
+   "repository": "lge_kernel_msm7x27",
+   "target_path": "kernel/lge/msm7x27",
+   "branch": "ics"
+ }
+]

@@ -1,0 +1,53 @@
+diff --git a/tools/roomservice.py b/tools/roomservice.py
+index 77c81c8..b9b83ba 100755
+--- a/tools/roomservice.py
++++ b/tools/roomservice.py
+@@ -20,7 +20,7 @@ except:
+     device = product
+ 
+ if not depsonly:
+-    print "Device %s not found. Attempting to retrieve device repository from CyanogenMod Github (http://github.com/CyanogenMod)." % device
++    print "Device %s not found. Attempting to retrieve device repository from GenetICS Github (http://github.com/GenetICS)." % device
+ 
+ repositories = []
+ 
+@@ -36,7 +36,7 @@ except:
+ 
+ page = 1
+ while not depsonly:
+-    githubreq = urllib2.Request("https://api.github.com/users/CyanogenMod/repos?per_page=100&page=%d" % page)
++    githubreq = urllib2.Request("https://api.github.com/users/GenetICS/repos?per_page=100&page=%d" % page)
+     if githubauth:
+         githubreq.add_header("Authorization","Basic %s" % githubauth)
+     result = json.loads(urllib2.urlopen(githubreq).read())
+@@ -116,12 +116,12 @@ def add_to_manifest(repositories):
+         repo_name = repository['repository']
+         repo_target = repository['target_path']
+         if exists_in_tree(lm, repo_name):
+-            print 'CyanogenMod/%s already exists' % (repo_name)
++            print 'GenetICS/%s already exists' % (repo_name)
+             continue
+ 
+-        print 'Adding dependency: CyanogenMod/%s -> %s' % (repo_name, repo_target)
++        print 'Adding dependency: GenetICS/%s -> %s' % (repo_name, repo_target)
+         project = ElementTree.Element("project", attrib = { "path": repo_target,
+-            "remote": "github", "name": "CyanogenMod/%s" % repo_name, "revision": "ics" })
++            "remote": "github", "name": "GenetICS/%s" % repo_name, "revision": "ics" })
+ 
+         if 'branch' in repository:
+             project.set('revision',repository['branch'])
+@@ -147,7 +147,7 @@ def fetch_dependencies(repo_path):
+         fetch_list = []
+ 
+         for dependency in dependencies:
+-            if not is_in_manifest("CyanogenMod/%s" % dependency['repository']):
++            if not is_in_manifest("GenetICS/%s" % dependency['repository']):
+                 fetch_list.append(dependency)
+                 syncable_repos.append(dependency['target_path'])
+ 
+@@ -191,4 +191,4 @@ else:
+             print "Done"
+             sys.exit()
+ 
+-print "Repository for %s not found in the CyanogenMod Github repository list. If this is in error, you may need to manually add it to your local_manifest.xml." % device
++print "Repository for %s not found in the GenetICS Github repository list. If this is in error, you may need to manually add it to your local_manifest.xml." % device
