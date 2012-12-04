@@ -62,18 +62,7 @@ lib/libgsl.so
 etc/firmware/yamato_pfp.fw
 etc/firmware/yamato_pm4.fw
 
-## OMX CORE (GB)
-lib/libOmxCore.so
-lib/libmm-omxcore.so
-
-## OMX Encoders/Decoders (GB)
-lib/libomx_aacdec_sharedlibrary.so
-lib/libomx_amrdec_sharedlibrary.so
-lib/libomx_amrenc_sharedlibrary.so
-lib/libomx_avcdec_sharedlibrary.so
-lib/libomx_m4vdec_sharedlibrary.so
-lib/libomx_mp3dec_sharedlibrary.so
-lib/libomx_sharedlibrary.so
+## OMX Encoders/Decoders (Legacy OMX)
 lib/libOmxAacDec.so
 lib/libOmxAacEnc.so
 lib/libOmxAdpcmDec.so
@@ -81,17 +70,18 @@ lib/libOmxAmrDec.so
 lib/libOmxAmrEnc.so
 lib/libOmxAmrRtpDec.so
 lib/libOmxAmrwbDec.so
-lib/libOmxEvrcDec.so
 lib/libOmxEvrcEnc.so
 lib/libOmxEvrcHwDec.so
+#lib/libOmxEvrcDec.so(replaced libOmxEvrcHwDec.so)
 lib/libOmxH264Dec.so
 lib/libOmxMp3Dec.so
 lib/libOmxMpeg4Dec.so
 lib/libOmxOn2Dec.so
-lib/libOmxQcelpDec.so
 lib/libOmxQcelp13Enc.so
 lib/libOmxQcelpHwDec.so
+#lib/libOmxQcelpDec.so (replaced libOmxQcelpHwDec.so)
 lib/libOmxVidEnc.so
 lib/libOmxWmaDec.so
 lib/libOmxWmvDec.so
 lib/libmm-adspsvc.so
+lib/libdivxdrmdecrypt.so

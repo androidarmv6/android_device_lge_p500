@@ -93,7 +93,6 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libQcomUI \
     libtilerenderer \
-    libopencorehw \
     gralloc.msm7x27 \
     copybit.msm7x27 \
     hwcomposer.msm7x27
@@ -101,8 +100,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libstagefrighthw \
     libmm-omxcore \
-    libOmxCore \
-    libdivxdrmdecrypt
+    libOmxCore
 
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
