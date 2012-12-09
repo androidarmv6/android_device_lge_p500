@@ -1,18 +1,24 @@
 # Video editor (5MB)
 app/VideoEditor.apk
+app/VideoEditor.odex
 lib/libvideoeditor_jni.so
 lib/libvideoeditorplayer.so
 
 # RomManager (2.5MB)
 app/RomManager.apk
+app/RomManager.odex
 
 # CM Wallpapers (7MB)
 app/CMWallpapers.apk
+app/CMWallpapers.odex
 
 # LiveWallpapers (1MB)
 app/MagicSmokeWallpapers.apk
+app/MagicSmokeWallpapers.odex
 app/Galaxy4.apk
+app/Galaxy4.odex
 app/PhaseBeam.apk
+app/PhaseBeam.odex
 
 # Boot animation: 2MB
 # media/bootanimation.zip
@@ -117,3 +123,15 @@ media/audio/ringtones/Enter_the_Nexus.ogg
 media/audio/ringtones/Nairobi.ogg
 media/audio/ringtones/Nassau.ogg
 media/audio/ringtones/Safari.ogg
+
+app/Gallery2.apk
+app/Gallery2.odex
+app/Provision.apk
+app/Provision.odex
+app/QuickSearchBox.apk
+app/QuickSearchBox.odex
+app/Stk.apk
+app/Stk.odex
+
+media/LMprec_508.emd
+media/PFFprec_600.emd

@@ -1,0 +1,13 @@
+diff --git a/Android.mk b/Android.mk
+index b7bc093..883eac0 100644
+--- a/Android.mk
++++ b/Android.mk
+@@ -11,6 +11,8 @@ LOCAL_SRC_FILES := $(call all-java-files-under, src)
+ LOCAL_PACKAGE_NAME := Settings
+ LOCAL_CERTIFICATE := platform
+ 
++LOCAL_DEX_PREOPT := false
++
+ LOCAL_PROGUARD_FLAG_FILES := proguard.flags
+ 
+ include $(BUILD_PACKAGE)

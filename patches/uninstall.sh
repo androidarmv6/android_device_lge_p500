@@ -22,6 +22,12 @@ git apply --reverse $rootdirectory/device/lge/p500/patches/external/webkit/*.pat
 echo " "
 
 cd $rootdirectory
+cd frameworks/base/
+echo "Applying frameworks/base/ patches..."
+git apply --reverse $rootdirectory/device/lge/p500/patches/frameworks/base/*.patch
+echo " "
+
+cd $rootdirectory
 cd packages/apps/Apollo/
 echo "Applying packages/apps/Apollo/ patches..."
 git apply --reverse $rootdirectory/device/lge/p500/patches/packages/apps/Apollo/*.patch
@@ -31,6 +37,18 @@ cd $rootdirectory
 cd packages/apps/Mms/
 echo "Applying packages/apps/Mms/ patches..."
 git apply --reverse $rootdirectory/device/lge/p500/patches/packages/apps/Mms/*.patch
+echo " "
+
+cd $rootdirectory
+cd packages/apps/Settings/
+echo "Applying packages/apps/Settings/ patches..."
+git apply --reverse $rootdirectory/device/lge/p500/patches/packages/apps/Settings/*.patch
+echo " "
+
+cd $rootdirectory
+cd packages/apps/Superuser/
+echo "Applying packages/apps/Superuser/ patches..."
+git apply --reverse $rootdirectory/device/lge/p500/patches/packages/apps/Superuser/*.patch
 echo " "
 
 cd $rootdirectory

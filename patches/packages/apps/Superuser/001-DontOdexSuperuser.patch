@@ -1,0 +1,13 @@
+diff --git a/Android.mk b/Android.mk
+index 3826f88..f95fdb4 100644
+--- a/Android.mk
++++ b/Android.mk
+@@ -10,6 +10,8 @@ LOCAL_AAPT_INCLUDE_ALL_RESOURCES := true
+ 
+ LOCAL_CERTIFICATE := superuser
+ 
++LOCAL_DEX_PREOPT := false
++
+ include $(BUILD_PACKAGE)
+ 
+ ##
