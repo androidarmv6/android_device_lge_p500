@@ -40,3 +40,6 @@ dalvik.vm.heapsize=64m
 dalvik.vm.execution-mode=int:jit
 dalvik.vm.verify-bytecode=false
 #dalvik.vm.dexopt-data-only=1
+
+# HwaSettings
+hwui.use.blacklist=true

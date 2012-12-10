@@ -48,7 +48,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/999youtube:system/etc/init.d/999youtube
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/releasetools/extras.sh:system/bin/extras.sh
+    $(LOCAL_PATH)/releasetools/extras.sh:system/bin/extras.sh \
+    $(LOCAL_PATH)/releasetools/install-hwui.sh:system/bin/install-hwui.sh
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.locationfeatures=1 \
@@ -118,6 +119,9 @@ PRODUCT_PACKAGES += \
     hcitool \
     hciconfig \
     hwaddrs
+
+PRODUCT_PACKAGES += \
+    HwaSettings
 
 PRODUCT_PACKAGES += \
     charger \
