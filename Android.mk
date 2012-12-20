@@ -15,8 +15,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq (LGE,$(PRODUCT_MANUFACTURER))
-  ifeq ($(TARGET_DEVICE),p500)
-    include $(call all-makefiles-under,$(LOCAL_PATH))
-  endif
+ifeq ($(TARGET_DEVICE),p500)
+  include $(call all-makefiles-under,$(LOCAL_PATH))
 endif

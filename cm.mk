@@ -23,8 +23,8 @@ PRODUCT_CHARACTERISTICS := phone
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=lge_p500 \
-    BUILD_FINGERPRINT="lge/thunderg/thunderg:2.3.3/GRI40/LG-P500-V20g.19C11F164C:user/release-keys" \
-    PRIVATE_BUILD_DESC="thunderg-user 2.3.3 GRI40 LG-P500-V20g.19C11F164C release-keys"
+    BUILD_FINGERPRINT="lge/thunderg/thunderg:4.2.1/JOP40D/LG-P500-V20g.19C11F164C:user/release-keys" \
+    PRIVATE_BUILD_DESC="thunderg-user 4.2.1 JOP40D LG-P500-V20g.19C11F164C release-keys"
 
 # Release name and versioning
 PRODUCT_RELEASE_NAME := OptimusOne
