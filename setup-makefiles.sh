@@ -2,9 +2,7 @@
 
 VENDOR=lge
 DEVICE=p500
-COMMON=msm7x27-common
 OUTDIR=vendor/$VENDOR/$DEVICE
-OUTCOMMON=vendor/$VENDOR/$COMMON
 
 (cat << EOF) > ../../../$OUTDIR/$DEVICE-vendor-blobs.mk
 # Copyright (C) 2012 The CyanogenMod Project
@@ -71,10 +69,8 @@ done
 
 
 # Pick up overlay for features that depend on non-open-source files
-DEVICE_PACKAGE_OVERLAYS := vendor/$VENDOR/$COMMON/overlay
 DEVICE_PACKAGE_OVERLAYS += vendor/$VENDOR/$DEVICE/overlay
 
-\$(call inherit-product, $OUTCOMMON/$COMMON-vendor-blobs.mk)
 \$(call inherit-product, $OUTDIR/$DEVICE-vendor-blobs.mk)
 EOF
 
