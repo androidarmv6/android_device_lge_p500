@@ -12,12 +12,8 @@
    "target_path": "device/lge/msm7x27-common",
    "branch": "cm-10.1"
  }, {
-   "repository": "android_vendor_lge_p500",
-   "target_path": "vendor/lge/p500",
-   "branch": "cm-10.1"
- }, {
-   "repository": "android_vendor_lge_msm7x27-common",
-   "target_path": "vendor/lge/msm7x27-common",
+   "repository": "android_vendor_lge",
+   "target_path": "vendor/lge",
    "branch": "cm-10.1"
  }, {
    "repository": "android_vendor_qcom_msm7x27",
