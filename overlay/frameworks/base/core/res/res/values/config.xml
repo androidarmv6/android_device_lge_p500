@@ -9,10 +9,21 @@
              8 - Search
             16 - App switch
          For example, a device with Home, Back and Menu keys would set this
-         config to 7.
-    <integer name="config_deviceHardwareKeys">15</integer> -->
+         config to 7. -->
+    <integer name="config_deviceHardwareKeys">15</integer>
+
     <!-- Values greater or equal to 0 will enable electronbeam screen-on
-         animation with the specified delay (in milliseconds), -1 will disable the animation
-    <integer name="config_screenOnAnimation">250</integer> -->
+         animation with the specified delay (in milliseconds), -1 will disable the animation -->
+    <integer name="config_screenOnAnimation">250</integer>
+
+    <!-- Array of ConnectivityManager.TYPE_xxxx values allowable for tethering -->
+    <!-- Common options are [1, 4] for TYPE_WIFI and TYPE_MOBILE_DUN or
+    <!== [0,1,5,7] for TYPE_MOBILE, TYPE_WIFI, TYPE_MOBILE_HIPRI and TYPE_BLUETOOTH -->
+    <integer-array translatable="false" name="config_tether_upstream_types">
+        <item>0</item>
+        <item>1</item>
+        <item>5</item>
+        <item>7</item>
+    </integer-array>
 </resources>
 
