@@ -13,25 +13,26 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.p500.rc:root/init.p500.rc \
     $(LOCAL_PATH)/ueventd.p500.rc:root/ueventd.p500.rc
 
+# P500 bluetooth vendor configuration
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+
 # P500 Audio
 PRODUCT_PACKAGES += \
     audio_policy.p500 \
     audio.primary.p500
 
-# P500 bluetooth vendor configuration
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
-
 # Live wallpapers
+PRODUCT_COPY_FILES += packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
     VisualizationWallpapers \
     librs_jni
 
-# Inherit products
-$(call inherit-product, device/lge/msm7x27-common/device.mk)
+# Inherit products (Most specific first)
 $(call inherit-product, vendor/lge/p500/p500-vendor.mk)
+$(call inherit-product, device/lge/msm7x27-common/device.mk)
 $(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
 
 # Overrides
