@@ -1,6 +1,3 @@
-# Include GSM stuff
-$(call inherit-product, vendor/cm/config/gsm.mk)
-
 # Inherit device configuration for p500.
 $(call inherit-product, device/lge/p500/p500.mk)
 

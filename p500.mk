@@ -1,5 +1,5 @@
 # Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
 # p500 configs
 PRODUCT_COPY_FILES += \
