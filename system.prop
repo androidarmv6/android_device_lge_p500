@@ -18,6 +18,7 @@ ro.telephony.ril.v3=signalstrength,skipbrokendatacall,facilitylock,datacall,iccc
 mobiledata.interfaces=rmnet0,rmnet1,rmnet2
 
 ro.bt.bdaddr_path=/data/misc/bd_addr
+ro.qualcomm.bt.hci_transport=uart
 
 # See also: init.qcom.usb.rc and init.qcom.post_boot.sh
 persist.sys.usb.config=mass_storage,adb
