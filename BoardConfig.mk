@@ -16,7 +16,7 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_KERNEL_SOURCE := kernel/lge/msm
 TARGET_KERNEL_CONFIG := cyanogenmod_p500_p509_defconfig
 TARGET_SPECIFIC_HEADER_PATH := device/lge/p500/include
-BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200,n8 androidboot.hardware=p500 no_console_suspend
+BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=p500 no_console_suspend
 BOARD_KERNEL_BASE := 0x12800000
 BOARD_KERNEL_PAGESIZE := 2048
 
