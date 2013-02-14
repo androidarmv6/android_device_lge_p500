@@ -10,12 +10,6 @@ git apply --reverse $rootdirectory/device/lge/p500/patches/bionic/*.patch
 echo " "
 
 cd $rootdirectory
-cd build
-echo "Applying build patches..."
-git apply --reverse $rootdirectory/device/lge/p500/patches/build/*.patch
-echo " "
-
-cd $rootdirectory
 cd external/webkit/
 echo "Applying external/webkit/ patches..."
 git apply --reverse $rootdirectory/device/lge/p500/patches/external/webkit/*.patch
