@@ -1,3 +1,13 @@
+## These apps are depends on GAPPS
+# Don't include these apps if gapps included
+#app/Gallery2.apk
+#app/Gallery2.odex
+#app/Provision.apk
+#app/Provision.odex
+#app/QuickSearchBox.apk
+#app/QuickSearchBox.odex
+
+
 # Video editor (5MB)
 app/VideoEditor.apk
 app/VideoEditor.odex
@@ -123,15 +133,6 @@ media/audio/ringtones/Enter_the_Nexus.ogg
 media/audio/ringtones/Nairobi.ogg
 media/audio/ringtones/Nassau.ogg
 media/audio/ringtones/Safari.ogg
-
-app/Gallery2.apk
-app/Gallery2.odex
-app/Provision.apk
-app/Provision.odex
-app/QuickSearchBox.apk
-app/QuickSearchBox.odex
-app/Stk.apk
-app/Stk.odex
 
 media/LMprec_508.emd
 media/PFFprec_600.emd

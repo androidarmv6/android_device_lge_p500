@@ -1,6 +1,8 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/lge/p500/device.mk)
 $(call inherit-product-if-exists, vendor/lge/p500/p500-vendor.mk)
+
+# See extras.txt (Gallery2, Provision, QuickSearchBox)
 #$(call inherit-product-if-exists, vendor/google/gapps.mk)
 
 PRODUCT_NAME := full_p500
