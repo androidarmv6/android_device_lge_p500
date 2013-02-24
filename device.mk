@@ -1,5 +1,4 @@
 DEVICE_PACKAGE_OVERLAYS := device/lge/p500/overlay
-$(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
@@ -36,6 +35,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/adreno_config.txt:system/etc/adreno_config.txt \
     $(LOCAL_PATH)/configs/AudioFilter.csv:system/etc/AudioFilter.csv \
     $(LOCAL_PATH)/configs/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
     $(LOCAL_PATH)/configs/nvram.txt:system/etc/wl/nvram.txt \
     $(LOCAL_PATH)/configs/vold.fstab:system/etc/vold.fstab \
@@ -105,7 +105,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
-    gps.p500 \
+    gps.msm7x27 \
+    librpc \
     lights.p500 \
     camera.msm7x27 \
     lgapversion
