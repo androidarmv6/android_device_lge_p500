@@ -94,6 +94,6 @@ BOARD_UMS_LUNFILE := /sys/class/android_usb/android0/f_mass_storage/lun/file
 BOARD_USES_RECOVERY_CHARGEMODE := false
 
 #WITH_DEXPREOPT := true
-TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/lge/p500/releasetools/ota_from_target_files
+#TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/lge/p500/releasetools/ota_from_target_files
 
 -include vendor/lge/p500/BoardConfigVendor.mk
