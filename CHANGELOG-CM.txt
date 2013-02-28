@@ -1,0 +1,55 @@
+CyanogenMod 9.2 for P500 (ICS-4.0.4)
+====================================
+
+For full CyanogenMod changelogs and git access:
+http://github.com/androidarmv6
+
+DEVICE CHANGELOG
+----------------
+
+### 9.2.0 (29 Feb 2013)
+
+WHAT'S NEW
+
+* Kernel version: 3.0.8 (ics_chocolate_rb4.2)
+* Fully functional RIL (Calls, SMS, MMS, 3G/2G, Mobile data, Data limit, Manual network search)
+* Fully functional camera (preview, taking photo, recording video, panorama)
+* Fix sleep issue after using GPS
+* Move HW Rendering app to System/Performance section
+
+STANDARD FEATURES
+* Fully functional camera (preview, taking photo, recording video, panorama)
+* Full H/W acceleration with new adreno drivers, 3D modelling (yamato)
+* Hardware decoding of videos, Youtube HQ videos
+* Internet sharing (Bluetooth tethering, USB tethering and Wi-Fi hotspot)
+* Calls, SMS, MMS, 3G/2G, Mobile data, Data limit, Manual network search
+* Usb mass storage, Usb debugging
+* Wi-Fi, Bluetooth, Bluetooth headset
+* GPS, Sensors, Lights, Touch screen
+* Car dock w/BT, Stereo audio
+* Funny SIM (128k USIMs)
+* Browser, GMail, GPlay
+* Youtube LQ/MQ/HQ
+
+EXTRA FEATURES
+* Built-in medium Google apps (Play, Talk, Voice Search)
+* I/O scheduler settings (Performance)
+* HwaSettings: To disable hardware acceleration for gmail, facebook and other apps
+* No CMStats and CMUpdater
+* CM FileManager
+* "Partition info" option in info settings
+* Show/hide navigation bar/on-screen buttons
+* Set center clock in status bar
+* Make status bar transparent
+* Circle battery
+* Bottom status bar (System - Statusbar)
+* Screenshoot settings (System - Power-off menu)
+* Recent apps: Clear all recent apps at once
+* Odexed on /system. /Cache partition is free for other apps.
+
+WORKING WITH A SOLUTION
+* FM Radio is not implemented in CM (use Spirit FM)
+
+KNOWN ISSUES
+* Removed off-mode charging support (has booting issue after charged)
+

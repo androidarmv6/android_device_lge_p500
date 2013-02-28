@@ -18,6 +18,9 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/CHANGELOG-CM.txt:system/etc/CHANGELOG-CM.txt
+
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/root/initlogo.rle:root/initlogo.rle \
     $(LOCAL_PATH)/root/init.p500.rc:root/init.p500.rc \
     $(LOCAL_PATH)/root/ueventd.p500.rc:root/ueventd.p500.rc \
