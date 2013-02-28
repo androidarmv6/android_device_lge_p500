@@ -1,11 +1,11 @@
 ## These apps are depends on GAPPS
 # Don't include these apps if gapps included
-#app/Gallery2.apk
-#app/Gallery2.odex
-#app/Provision.apk
-#app/Provision.odex
-#app/QuickSearchBox.apk
-#app/QuickSearchBox.odex
+app/Gallery2.apk
+app/Gallery2.odex
+app/Provision.apk
+app/Provision.odex
+app/QuickSearchBox.apk
+app/QuickSearchBox.odex
 
 
 # Video editor (5MB)
