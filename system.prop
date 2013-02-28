@@ -22,8 +22,11 @@ ro.bt.bdaddr_path=/data/misc/bd_addr
 # see also: init.qcom.usb.rc and init.qcom.post_boot.sh
 persist.sys.usb.config=mass_storage,adb
 
-# enable dithering (always)
-persist.sys.use_dithering=2
+# Fix color banding
+persist.sys.use_dithering=1
+
+# Allow purging of asset bitmaps
+persist.sys.purgeable_assets=1
 
 # camera
 ro.product.camera=msm7x27
