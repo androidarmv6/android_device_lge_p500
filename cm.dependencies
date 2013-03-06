@@ -1,11 +1,2 @@
 [
- {
-   "repository": "android_kernel_lge_msm7x27-3.0.x",
-   "target_path": "kernel/lge/msm7x27-3.0.x",
-   "branch": "ics-plus"
- }, {
-   "repository": "android_vendor_lge",
-   "target_path": "vendor/lge",
-   "branch": "ics-plus"
- }
 ]

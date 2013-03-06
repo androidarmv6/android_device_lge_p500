@@ -11,7 +11,7 @@ familiar with [Git and Repo](http://source.android.com/source/version-control.ht
 
 To initialize your local repository using the CyanogenMod trees, use a command like this:
 
-    repo init -u git://github.com/androidarmv6/android.git -b ics-plus
+    repo init -u git://github.com/GenetICS/manifest.git -b ics-plus
 
 Then to sync up:
 
@@ -42,7 +42,7 @@ Disclaimer
 --------
 
 All of these device are not supported by CyanogenMod since they use the old Qualcomm
-Snapdragon MSM7x27 chip, and hence cut off by the CyanogenMod team. This team (androidarmv6)
+Snapdragon MSM7x27 chip, and hence cut off by the CyanogenMod team. This team (GenetICS)
 is in no way, shape or form affiliated by the CyanogenMod team and this project is not
 endorsed or supported by the CyanogenMod team.
 
