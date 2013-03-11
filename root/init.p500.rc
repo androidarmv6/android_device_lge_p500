@@ -26,7 +26,7 @@ service ami304d /system/bin/ami304d
     group system
 
 ## CHARGER ##
-service charger /charger
+service charger /sbin/checkbootreason
     class charger
     user root
     group root
@@ -34,4 +34,3 @@ service charger /charger
 
 on property:init.svc.charger=running
     setprop sys.usb.config adb
-    exec /sbin/checkbootreason
