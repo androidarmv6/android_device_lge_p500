@@ -3,8 +3,8 @@
 sleep 3
 # See: Documentation/arm/msm/boot.txt
 boot_reason=`cat /proc/sys/kernel/boot_reason`
-# REBOOT if boot_reason&1==1 (power button long press)
-((($boot_reason&1)==1)) && reboot
+# "reboot charge_reset" if boot_reason&1==1 (power button long press)
+((($boot_reason&1)==1)) && reboot charge_reset
 
 # Start CHARGER after boot_reason to prevent charging anims
 exec /sbin/chargerlogo
