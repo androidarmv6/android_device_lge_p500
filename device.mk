@@ -127,6 +127,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     HwaSettings
 
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/root/checkbootreason:root/sbin/checkbootreason
 PRODUCT_PACKAGES += \
     charger \
     charger_res_images
