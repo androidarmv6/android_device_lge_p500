@@ -17,11 +17,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.p500.rc:root/init.p500.rc \
     $(LOCAL_PATH)/ueventd.p500.rc:root/ueventd.p500.rc
 
-# P500 Audio
-PRODUCT_PACKAGES += \
-    audio_policy.p500 \
-    audio.primary.p500
-
 # Live wallpapers
 PRODUCT_COPY_FILES += packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 PRODUCT_PACKAGES += \
