@@ -1,21 +1,21 @@
 CyanogenMod 9.2 for P500 (ICS-4.0.4)
 ====================================
 
-For full CyanogenMod changelogs and git access:
-http://github.com/androidarmv6
+For full device changelogs and git access:
+http://github.com/GenetICS
 
 DEVICE CHANGELOG
 ----------------
 
-### 9.2.0 (29 Feb 2013)
+### 9.2.1 (?? Mar 2013)
 
 WHAT'S NEW
 
-* Kernel version: 3.0.8 (ics_chocolate_rb4.2)
-* Fully functional RIL (Calls, SMS, MMS, 3G/2G, Mobile data, Data limit, Manual network search)
-* Fully functional camera (preview, taking photo, recording video, panorama)
-* Fix sleep issue after using GPS
+* Kernel upgraded to the latest CAF ics_chocolate branch: 3.0.8
 * Move HW Rendering app to System/Performance section
+* Fix sleep issue after using GPS
+* Fix offmode charging
+* FM radio
 
 STANDARD FEATURES
 
@@ -27,10 +27,11 @@ STANDARD FEATURES
 * Usb mass storage, Usb debugging
 * Wi-Fi, Bluetooth, Bluetooth headset
 * GPS, Sensors, Lights, Touch screen
-* Car dock w/BT, Stereo audio
+* Car dock w/BT, Stereo audio, FM radio
 * Funny SIM (128k USIMs)
 * Browser, GMail, GPlay
 * Youtube LQ/MQ/HQ
+* Offmode charging
 
 EXTRA FEATURES
 
@@ -47,13 +48,4 @@ EXTRA FEATURES
 * Bottom status bar (System - Statusbar)
 * Screenshoot settings (System - Power-off menu)
 * Recent apps: Clear all recent apps at once
-* Odexed on /system. /Cache partition is free for other apps.
-
-WORKING WITH A SOLUTION
-
-* FM Radio is not implemented in CM (use Spirit FM)
-
-KNOWN ISSUES
-
-* Removed off-mode charging support (has booting issue after charged)
-
+* Odexed on /system. /Cache partition is free for other apps
