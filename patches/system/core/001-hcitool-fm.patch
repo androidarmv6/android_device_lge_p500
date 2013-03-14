@@ -1,0 +1,20 @@
+commit b541870bce4fa98b96340032f44e7784a8bcd9f9
+Author: AndroidMeda <hephappy@gmail.com>
+Date:   Thu Mar 14 18:55:58 2013 +0200
+
+    FM: hcitool permissions for FM radio
+    
+    Change-Id: If2397bf694b25c3562a7baaaf8fc7f5269831859
+
+diff --git a/include/private/android_filesystem_config.h b/include/private/android_filesystem_config.h
+index ebb9f48..aed6b60 100644
+--- a/include/private/android_filesystem_config.h
++++ b/include/private/android_filesystem_config.h
+@@ -244,6 +244,7 @@ static struct fs_path_config android_files[] = {
+ 		/* the following file is INTENTIONALLY set-uid, and IS included
+ 		 * in user builds. */
+     { 06750, AID_ROOT,      AID_SHELL,     "system/bin/run-as" },
++    { 06755, AID_ROOT,      AID_ROOT,      "system/xbin/hcitool" },
+     { 06750, AID_ROOT,      AID_SYSTEM,    "system/bin/rebootcmd" },
+     { 00755, AID_ROOT,      AID_SHELL,     "system/bin/*" },
+     { 00755, AID_ROOT,      AID_ROOT,      "system/lib/valgrind/*" },

@@ -34,6 +34,12 @@ git apply $rootdirectory/device/lge/p500/patches/packages/apps/Superuser/*.patch
 echo " "
 
 cd $rootdirectory
+cd system/core/
+echo "Applying system/core/ patches..."
+git apply $rootdirectory/device/lge/p500/patches/system/core/*.patch
+echo " "
+
+cd $rootdirectory
 cd system/su/
 echo "Applying system/su/ patches..."
 git apply $rootdirectory/device/lge/p500/patches/system/su/*.patch

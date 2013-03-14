@@ -276,11 +276,20 @@ static int radioOn(struct bcm4325_session *priv)
             return FMRADIO_INVALID_STATE;
         }
         /* Mute, volume, de-emphasis, route parameters, BW select*/
-        if (hci_w(BCM4325_I2C_FM_AUDIO_CTRL0,
+#ifdef HAS_BCM20780
+        if (hci_w16(BCM4325_I2C_FM_AUDIO_CTRL0,
+            BCM4325_FM_AUDIO_CTRL0_RF_MUTE_ENABLE |
+            BCM4325_FM_AUDIO_CTRL0_DAC_OUT_LEFT_ON | BCM4325_FM_AUDIO_CTRL0_DAC_OUT_RIGHT_ON |
+            BCM4325_FM_AUDIO_CTRL0_ROUTE_DAC_ENABLE | BCM4325_FM_AUDIO_CTRL0_DEMPH_75US, 0) < 0) {
+            return FMRADIO_INVALID_STATE;
+    }
+#else
+    if (hci_w(BCM4325_I2C_FM_AUDIO_CTRL0,
             BCM4325_FM_AUDIO_CTRL0_DAC_OUT_LEFT_ON | BCM4325_FM_AUDIO_CTRL0_DAC_OUT_RIGHT_ON |
             BCM4325_FM_AUDIO_CTRL0_ROUTE_DAC_ENABLE | BCM4325_FM_AUDIO_CTRL0_DEMPH_75US) < 0) {
             return FMRADIO_INVALID_STATE;
-        }
+    }
+#endif
         priv->radioInitialised = true;
     }
 
@@ -345,7 +354,7 @@ bcm4325_rx_start(void **session_data,
     priv->defaultFreq = default_freq;
 
     res |= radioOn(priv);
-    res |= setBand(priv, low_freq, high_freq);;
+    res |= setBand(priv, low_freq, high_freq);
     res |= setFreq(priv, default_freq);
 
     return res;
@@ -404,48 +413,58 @@ static int
 bcm4325_scan(void **session_data, enum fmradio_seek_direction_t dir)
 {
     struct bcm4325_session *priv = (struct bcm4325_session *)*session_data;
-    int i;
-
-    LOGI("scan %d", dir);
-
     int oldFreq = bcm4325_get_frequency(session_data);
+    int newFreq = oldFreq + (dir ? 100 : -100);
+    bool tuned = false;
+    int i = 0;
 
     if ((oldFreq-100 <= 87500 && !dir) || (oldFreq+100 >= 108000 && dir)) {
         LOGD("Can't seek %s. Already at end of band.", dir?"up":"down");
         return oldFreq;
     }
-    else {
-        if (hci_w(BCM4325_I2C_FM_SEARCH_METHOD, BCM4325_SEARCH_NORMAL) < 0){
-            LOGE("fail search method\n");
-            return oldFreq;
-        }
-        if (hci_w(BCM4325_I2C_FM_SEARCH_CTRL1, BCM4325_I2C_FM_AF_FREQ0) < 0){
-            LOGE("fail search set SEARCH_CTRL1 reg\n");
-            return oldFreq;
-        }
-        if (hci_w(BCM4325_I2C_FM_MAX_PRESET, 0) < 0 ){
-            LOGE("fail search set MAX_PRESET reg\n");
-            return oldFreq;
-        }
-        if (hci_w(BCM4325_I2C_FM_SEARCH_CTRL0, 
-                 (dir ? BCM4325_FM_SEARCH_CTRL0_UP : BCM4325_FM_SEARCH_CTRL0_DOWN ) | BCM4325_FLAG_STEREO_ACTIVE | BCM4325_FLAG_STEREO_DETECTION) < 0) {
-            LOGE("fail search set SEARCH_CTRL0 reg\n");
-            return oldFreq;
-        }
-        setFreq(priv, oldFreq+(dir?100:-100));
-        if (hci_w(BCM4325_I2C_FM_SEARCH_TUNE_MODE, BCM4325_FM_AUTO_SEARCH_MODE) < 0) {
-            LOGE("fail tuning\n");
-            return oldFreq;
-        }
+
+    LOGI("scan %s, old:%d, new:%d", (dir?"up":"down"), oldFreq, newFreq);
+
+    if (hci_w(BCM4325_I2C_FM_SEARCH_METHOD, BCM4325_SEARCH_NORMAL) < 0) {
+        LOGE("fail search method\n");
+        return oldFreq;
+    }
+    if (hci_w(BCM4325_I2C_FM_SEARCH_CTRL1, BCM4325_I2C_FM_AF_FREQ0) < 0) {
+        LOGE("fail search set SEARCH_CTRL1 reg\n");
+        return oldFreq;
+    }
+    if (hci_w(BCM4325_I2C_FM_MAX_PRESET, 0) < 0 ) {
+        LOGE("fail search set MAX_PRESET reg\n");
+        return oldFreq;
+    }
+    if (hci_w(BCM4325_I2C_FM_SEARCH_CTRL0,
+             (dir ? BCM4325_FM_SEARCH_CTRL0_UP : BCM4325_FM_SEARCH_CTRL0_DOWN ) | BCM4325_FLAG_STEREO_ACTIVE | BCM4325_FLAG_STEREO_DETECTION) < 0) {
+        LOGE("fail search set SEARCH_CTRL0 reg\n");
+        return oldFreq;
+    }
+
+    setFreq(priv, newFreq);
+    if (hci_w(BCM4325_I2C_FM_SEARCH_TUNE_MODE, BCM4325_FM_AUTO_SEARCH_MODE) < 0) {
+        LOGE("fail tuning\n");
+        return oldFreq;
     }
 
     // before returning wait for tuning to finish and seek to start.
     // I have seen this go into an infinite loop once, so limit it to 20 iterations (usually takes 1-4).
-    for (i = 0; i < 20 && bcm4325_get_frequency(session_data) == oldFreq+(dir?100:-100); i++){
+    tuned = bcm4325_get_frequency(session_data) == newFreq;
+    while (!tuned)
+    {
         LOGD("waiting for seek to start");
         usleep(100);
+
+        tuned = bcm4325_get_frequency(session_data) == newFreq;
+        i++;
+
+        if (tuned || i >= 20)
+            break;
     }
-    return bcm4325_get_frequency(session_data);
+
+    return (tuned ? newFreq : oldFreq);
 }
 
 static int

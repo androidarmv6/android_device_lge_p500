@@ -16,12 +16,22 @@ LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
 
+ifeq (true,$(BOARD_HAVE_FM_RADIO))
+ifneq (,$(filter bcm2049 bcm4325 bcm4329,$(BOARD_FM_DEVICE)))
+
+ifeq ($(BOARD_FM_DEVICE),bcm2049)
+LOCAL_CFLAGS += -DHAS_BCM20780
+endif
+
 LOCAL_SRC_FILES := libfmradio_bcm4325.c
 LOCAL_C_INCLUDES += $(LOCAL_PATH)
 
 LOCAL_PRELINK_MODULE := false
 LOCAL_SHARED_LIBRARIES := liblog
-LOCAL_MODULE := libfmradio.bcm4325
+LOCAL_MODULE := libfmradio.$(BOARD_FM_DEVICE)
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
+
+endif #BOARD_FM_DEVICE
+endif #BOARD_HAVE_FM_RADIO
