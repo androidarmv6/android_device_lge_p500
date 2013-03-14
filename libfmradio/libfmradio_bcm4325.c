@@ -413,9 +413,10 @@ static int
 bcm4325_scan(void **session_data, enum fmradio_seek_direction_t dir)
 {
     struct bcm4325_session *priv = (struct bcm4325_session *)*session_data;
-    int oldFreq = bcm4325_get_frequency(session_data);
-    int newFreq = oldFreq + (dir ? 100 : -100);
-    bool tuned = false;
+    int oldFreq = bcm4325_get_frequency(session_data); 
+    int upDownFreq = oldFreq + (dir ? 100 : -100);
+    int newStation = 0;
+    bool found = false;
     int i = 0;
 
     if ((oldFreq-100 <= 87500 && !dir) || (oldFreq+100 >= 108000 && dir)) {
@@ -423,7 +424,7 @@ bcm4325_scan(void **session_data, enum fmradio_seek_direction_t dir)
         return oldFreq;
     }
 
-    LOGI("scan %s, old:%d, new:%d", (dir?"up":"down"), oldFreq, newFreq);
+    LOGI("Begin scan %s, current:%d", (dir?"up":"down"), oldFreq);
 
     if (hci_w(BCM4325_I2C_FM_SEARCH_METHOD, BCM4325_SEARCH_NORMAL) < 0) {
         LOGE("fail search method\n");
@@ -443,28 +444,35 @@ bcm4325_scan(void **session_data, enum fmradio_seek_direction_t dir)
         return oldFreq;
     }
 
-    setFreq(priv, newFreq);
+    // Start tuning (up/down)
+    setFreq(priv, upDownFreq);
     if (hci_w(BCM4325_I2C_FM_SEARCH_TUNE_MODE, BCM4325_FM_AUTO_SEARCH_MODE) < 0) {
         LOGE("fail tuning\n");
         return oldFreq;
     }
 
-    // before returning wait for tuning to finish and seek to start.
-    // I have seen this go into an infinite loop once, so limit it to 20 iterations (usually takes 1-4).
-    tuned = bcm4325_get_frequency(session_data) == newFreq;
-    while (!tuned)
+    // Found new station?
+    newStation = bcm4325_get_frequency(session_data);
+    found = newStation != oldFreq;
+    while (!found)
     {
-        LOGD("waiting for seek to start");
+        LOGD("Seeking...");
         usleep(100);
 
-        tuned = bcm4325_get_frequency(session_data) == newFreq;
+        newStation = bcm4325_get_frequency(session_data);
+        found = newStation != oldFreq;
         i++;
 
-        if (tuned || i >= 20)
+        if (found || i >= 20)
             break;
     }
 
-    return (tuned ? newFreq : oldFreq);
+    if (found) {
+        LOGI("New station:%d", newStation);
+        return newStation;
+    }
+
+    return oldFreq;
 }
 
 static int
