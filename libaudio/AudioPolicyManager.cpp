@@ -20,11 +20,11 @@
 //#define LOG_NDEBUG 0
 #include <utils/Log.h>
 #include "AudioPolicyManager.h"
+#include "AudioHardware.h"
 #include <media/mediarecorder.h>
 #include <fcntl.h>
 #include <cutils/properties.h> // for property_get
 
-#include "AudioHardware.h"
 
 namespace android_audio_legacy {
 
@@ -157,6 +157,7 @@ uint32_t AudioPolicyManager::getDeviceForStrategy(routing_strategy strategy, boo
     case STRATEGY_MEDIA: {
 #ifdef HAVE_FM_RADIO
         uint32_t device2 = 0;
+        // FM-ROUTING-FIX(SPEAKER)
         if (mForceUse[AudioSystem::FOR_MEDIA] == AudioSystem::FORCE_SPEAKER) {
             device2 = mAvailableOutputDevices & AudioSystem::DEVICE_OUT_SPEAKER;
         }
@@ -187,7 +188,7 @@ uint32_t AudioPolicyManager::getDeviceForStrategy(routing_strategy strategy, boo
             device2 = mAvailableOutputDevices & AudioSystem::DEVICE_OUT_WIRED_HEADPHONE;
         }
         if (device2 == 0) {
-            device2 = mAvailableOutputDevices & AudioSystem::DEVICE_OUT_WIRED_HEADSET;
+            device2 = mAvailableOutputDevices & AudioSystem::DEVICE_OUT_WIRED_HEADSET; // FM-ROUTING-FIX(WIRED_HEADSET)
         }
         if (device2 == 0) {
             device2 = mAvailableOutputDevices & AudioSystem::DEVICE_OUT_SPEAKER;
@@ -201,12 +202,12 @@ uint32_t AudioPolicyManager::getDeviceForStrategy(routing_strategy strategy, boo
 
 #ifdef HAVE_FM_RADIO
         if (mAvailableOutputDevices & AudioSystem::DEVICE_OUT_FM) {
+            // FM-ROUTING-FIX(FM)
             device |= AudioSystem::DEVICE_OUT_FM;
-            
             if (device == (AudioSystem::DEVICE_OUT_SPEAKER | AudioSystem::DEVICE_OUT_WIRED_HEADSET | AudioSystem::DEVICE_OUT_FM))
                 device = AudioSystem::DEVICE_OUT_SPEAKER;
             else if(device & AudioSystem::DEVICE_OUT_WIRED_HEADSET)
-                 device &= ~(device & AudioSystem::DEVICE_OUT_WIRED_HEADSET);
+                device &= ~(device & AudioSystem::DEVICE_OUT_WIRED_HEADSET);
         }
 #endif
         // Do not play media stream if in call and the requested device would change the hardware
@@ -230,7 +231,6 @@ uint32_t AudioPolicyManager::getDeviceForStrategy(routing_strategy strategy, boo
 
 status_t AudioPolicyManager::checkAndSetVolume(int stream, int index, audio_io_handle_t output, uint32_t device, int delayMs, bool force)
 {
-
     // do not change actual stream volume if the stream is muted
     if (mOutputs.valueFor(output)->mMuteCount[stream] != 0) {
         LOGV("checkAndSetVolume() stream %d muted count %d", stream, mOutputs.valueFor(output)->mMuteCount[stream]);
@@ -252,7 +252,7 @@ status_t AudioPolicyManager::checkAndSetVolume(int stream, int index, audio_io_h
     if (volume != mOutputs.valueFor(output)->mCurVolume[stream] ||
         (stream == AudioSystem::VOICE_CALL) ||
 #ifdef HAVE_FM_RADIO
-	    (stream == AudioSystem::FM) ||
+	(stream == AudioSystem::FM) ||
 #endif
 	force) {
         mOutputs.valueFor(output)->mCurVolume[stream] = volume;
@@ -269,14 +269,8 @@ status_t AudioPolicyManager::checkAndSetVolume(int stream, int index, audio_io_h
 
     if (stream == AudioSystem::VOICE_CALL ||
         stream == AudioSystem::BLUETOOTH_SCO) {
-        float voiceVolume;
         // Force voice volume to max for bluetooth SCO as volume is managed by the headset
-        if (stream == AudioSystem::VOICE_CALL) {
-            voiceVolume = (float)index/(float)mStreams[stream].mIndexMax;
-        } else {
-            voiceVolume = 1.0;
-        }
-        
+        float voiceVolume = (stream == AudioSystem::VOICE_CALL) ? ((float)index/(float)mStreams[stream].mIndexMax) : 1.0;
         if ((voiceVolume >= 0 && output == mHardwareOutput)
 #ifdef HAVE_FM_RADIO
           && (!(mAvailableOutputDevices & AudioSystem::DEVICE_OUT_FM))
@@ -288,8 +282,7 @@ status_t AudioPolicyManager::checkAndSetVolume(int stream, int index, audio_io_h
     }
 #ifdef HAVE_FM_RADIO
     else if ((stream == AudioSystem::FM) && (mAvailableOutputDevices & AudioSystem::DEVICE_OUT_FM)) {
-        float fmVolume = -1.0;
-        fmVolume = (float)index/(float)mStreams[stream].mIndexMax;
+        float fmVolume = (float)index/(float)mStreams[stream].mIndexMax;
         if (fmVolume >= 0 && output == mHardwareOutput) {
             mpClientInterface->setFmVolume(fmVolume, delayMs);
         }

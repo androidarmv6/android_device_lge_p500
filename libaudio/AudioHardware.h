@@ -18,6 +18,9 @@
 #ifndef ANDROID_AUDIO_HARDWARE_H
 #define ANDROID_AUDIO_HARDWARE_H
 
+// P500 SPEAKER_IN_CALL fix
+#define AUDIO_DEVICE_OUT_SPEAKER_IN_CALL 0x4000
+
 #include <stdint.h>
 #include <sys/types.h>
 
@@ -34,13 +37,10 @@ extern "C" {
 #include <linux/msm_audio_qcp.h>
 }
 
+
 namespace android_audio_legacy {
 using android::SortedVector;
 using android::Mutex;
-
-// P500 SPEAKER_IN_CALL fix
-#define AUDIO_DEVICE_OUT_SPEAKER_IN_CALL 0x4000
-
 
 // ----------------------------------------------------------------------------
 // Kernel driver interface
