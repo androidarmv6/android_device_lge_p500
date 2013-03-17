@@ -316,9 +316,6 @@ static uint32_t adev_get_supported_devices(const struct audio_hw_device *dev)
  *             AUDIO_DEVICE_OUT_ALL_A2DP |
  * #endif
  */
-            AUDIO_DEVICE_OUT_AUX_DIGITAL |
-            AUDIO_DEVICE_OUT_ANLG_DOCK_HEADSET |
-            AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET |
             AUDIO_DEVICE_OUT_SPEAKER_IN_CALL | // P500 SPEAKER_IN_CALL fix
             AUDIO_DEVICE_OUT_ALL_SCO |
 #ifdef HAVE_FM_RADIO
