@@ -129,8 +129,7 @@ PRODUCT_PACKAGES += \
     HwaSettings
 
 PRODUCT_PACKAGES += \
-    FmRadio \
-    FmRadioReceiver \
+    Effem \
     libfmradio.bcm4325
 
 PRODUCT_COPY_FILES += \

@@ -440,6 +440,10 @@ status_t AudioHardware::setParameters(const String8& keyValuePairs)
         if(mMode != AudioSystem::MODE_IN_CALL){
            return NO_ERROR;
         }
+        LOGI("Changed TTY Mode=%s", value.string());
+        if(mCurSndDevice == SND_DEVICE_HEADSET)
+           doRouting(NULL);
+
     } else {
         mTtyMode = TTY_OFF;
     }
