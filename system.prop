@@ -28,6 +28,9 @@ persist.sys.use_dithering=1
 # Allow purging of asset bitmaps
 persist.sys.purgeable_assets=1
 
+# Allow up to 5hidden apps
+sys.mem.max_hidden_apps=5
+
 # camera
 ro.product.camera=msm7x27
 debug.camcorder.disablemeta=1

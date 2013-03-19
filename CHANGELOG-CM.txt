@@ -7,15 +7,15 @@ http://github.com/GenetICS
 DEVICE CHANGELOG
 ----------------
 
-### 9.2.1 (?? Mar 2013)
+### 9.2.1 (20 Mar 2013)
 
 WHAT'S NEW
 
 * Kernel upgraded to the latest CAF ics_chocolate branch: 3.0.8
+* FM Radio (bluetooth must be enabled first)
 * Move HW Rendering app to System/Performance section
 * Fix sleep issue after using GPS
 * Fix offmode charging
-* FM radio
 
 STANDARD FEATURES
 
