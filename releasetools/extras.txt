@@ -7,6 +7,8 @@ app/Provision.odex
 app/QuickSearchBox.apk
 app/QuickSearchBox.odex
 
+# Fix FC (prebuilt)
+app/Superuser.odex
 
 # Video editor (5MB)
 app/VideoEditor.apk
