@@ -6,7 +6,7 @@
  }, {
    "repository": "android_kernel_lge_msm7x27-3.0.x",
    "target_path": "kernel/lge/msm7x27-3.0.x",
-   "branch": "cm-10.1"
+   "branch": "3.0.31"
  }, {
    "repository": "android_device_qcom_msm7x27",
    "target_path": "device/qcom/msm7x27",
