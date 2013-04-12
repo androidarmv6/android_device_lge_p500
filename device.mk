@@ -132,6 +132,7 @@ PRODUCT_PACKAGES += \
     Effem \
     libfmradio.bcm4325
 
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/root/checkbootreason:root/sbin/checkbootreason
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/chargemode/chargerimages/battery_ani_01.rle:root/chargerimages/battery_ani_01.rle \
     $(LOCAL_PATH)/chargemode/chargerimages/battery_ani_02.rle:root/chargerimages/battery_ani_02.rle \
@@ -150,10 +151,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/chargemode/chargerimages/black_bg.rle:root/chargerimages/black_bg.rle \
     $(LOCAL_PATH)/chargemode/chargerlogo:root/sbin/chargerlogo
 
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/root/checkbootreason:root/sbin/checkbootreason
-#PRODUCT_PACKAGES += \
-#    charger \
-#    charger_res_images
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.themeId=TouchWiz \
+    persist.sys.themePackageName=com.thomassafca.theme.touchwiz.free
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/themes/com.thomassafca.theme.touchwiz.free.apk:system/app/com.thomassafca.theme.touchwiz.free.apk \
+    $(LOCAL_PATH)/prebuilt/themes/org.cerqueira.theme.Green.apk:system/app/org.cerqueira.theme.Green.apk
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
