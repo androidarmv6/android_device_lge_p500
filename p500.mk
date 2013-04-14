@@ -13,6 +13,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.p500.rc:root/init.p500.rc \
     $(LOCAL_PATH)/ueventd.p500.rc:root/ueventd.p500.rc
 
+# fm radio
+PRODUCT_PACKAGES += \
+    Effem \
+    libfmradio.bcm4325
+
+PRODUCT_COPY_FILES += \
+    frameworks/base/data/etc/com.stericsson.hardware.fm.receiver.xml:system/etc/permissions/com.stericsson.hardware.fm.receiver.xml
+
 # p500 off-mode charging
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/checkbootreason:root/sbin/checkbootreason
 PRODUCT_COPY_FILES += \
