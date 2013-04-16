@@ -50,6 +50,9 @@ PRODUCT_PACKAGES += \
     audio_policy.p500 \
     audio.primary.p500
 
+#P500_SPEAKER_IN_CALL_FIX
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+
 # Live wallpapers
 PRODUCT_COPY_FILES += packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 PRODUCT_PACKAGES += \
