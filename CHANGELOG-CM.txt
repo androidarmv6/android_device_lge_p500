@@ -1,5 +1,5 @@
-CyanogenMod 9.2 for P500 (ICS-4.0.4)
-====================================
+CyanogenMod 9.2.2 for P500 (ICS-4.0.4)
+======================================
 
 For full device changelogs and git access:
 http://github.com/GenetICS
@@ -7,12 +7,13 @@ http://github.com/GenetICS
 DEVICE CHANGELOG
 ----------------
 
-### 9.2.1 (20 Mar 2013)
+### 9.2.2 FINAL (12 Apr 2013)
 
 WHAT'S NEW
 
+* FM Radio with bluetooth support
+* 2 new themes: TouchWiz(default) and Holo Green
 * Kernel upgraded to the latest CAF ics_chocolate branch: 3.0.8
-* FM Radio (bluetooth must be enabled first)
 * Move HW Rendering app to System/Performance section
 * Fix sleep issue after using GPS
 * Fix offmode charging
@@ -27,11 +28,12 @@ STANDARD FEATURES
 * Usb mass storage, Usb debugging
 * Wi-Fi, Bluetooth, Bluetooth headset
 * GPS, Sensors, Lights, Touch screen
-* Car dock w/BT, Stereo audio, FM radio
+* Car dock w/BT, Stereo audio
 * Funny SIM (128k USIMs)
 * Browser, GMail, GPlay
 * Youtube LQ/MQ/HQ
 * Offmode charging
+* FM radio
 
 EXTRA FEATURES
 
