@@ -1,5 +1,5 @@
-# the DIAG device node is world writable/readable.
-/dev/diag                 0666   root       root
+# the DIAG device node is not world writable/readable.
+/dev/diag                 0660   system     qcom_diag
 
 # allow wpa_supplicant access to rfkill dev
 /dev/rfkill               0660   wifi       wifi
