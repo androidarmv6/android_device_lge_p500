@@ -12,3 +12,5 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/p500/bluetooth
 
 P500_SPEAKER_IN_CALL_FIX := true
 
+BOARD_SEPOLICY_DIRS := device/lge/p500/sepolicy
+BOARD_SEPOLICY_UNION := file_contexts
