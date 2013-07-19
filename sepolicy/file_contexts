@@ -1,0 +1,4 @@
+#The devices and files used by the hciattach service are device specific
+/system/bin/brcm_patchram_plus     u:object_r:hci_attach_exec:s0
+/dev/ttyHS0                        u:object_r:hci_attach_dev:s0
+
