@@ -1,8 +1,10 @@
 # inherit qcom init
 import init.qcom.rc
 
-on boot
+on fs
+    mount_all /fstab.p500
 
+on boot
     ## VIBRATOR
     chmod 0660 /sys/class/timed_output/vibrator/amp
 
