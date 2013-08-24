@@ -1,9 +1,3 @@
-#
-# LG Optimus One System Properties Configuration
-# See system.prop in p500 repo
-# Last updated on: February 2, 2013
-#
-
 # RIL
 rild.libpath=/system/lib/libril-qc-1.so
 rild.libargs=-d /dev/smd0
@@ -30,27 +24,21 @@ ro.bt.bdaddr_path=/data/misc/bd_addr
 # See also: init.qcom.usb.rc and init.qcom.post_boot.sh
 persist.sys.usb.config=mass_storage,adb
 
-# Enable dithering (always)
-persist.sys.use_dithering=2
-
-# Force use of GPU on 2D rendering
-# persist.sys.force_hw_ui=true
-
+# OpenGL Graphics
 ro.opengles.version=131072
 
 # Screen density
 ro.sf.lcd_density=160
 
 # Dalvik options
-dalvik.vm.checkjni=0
+dalvik.vm.checkjni=false
 dalvik.vm.dexopt-data-only=1
 dalvik.vm.dexopt-flags=v=a,o=v,m=y,u=y
 dalvik.vm.execution-mode=int:jit
 dalvik.vm.heapstartsize=5m
 dalvik.vm.heapgrowthlimit=36m
 dalvik.vm.heapsize=64m
-dalvik.vm.heaptargetutilization=0.75
+dalvik.vm.heaptargetutilization=0.25
 dalvik.vm.heapminfree=512k
 dalvik.vm.heapmaxfree=2m
-dalvik.vm.lockprof.threshold=500
 
