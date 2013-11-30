@@ -1,12 +1,25 @@
 # http://source.android.com/devices/tech/storage/index.html
 #<src>			<mnt_point>	<type>	<mnt_flags and options>	<fs_mgr_flags>
 
-system			/system		yaffs2	ro,remount		length=199229440,wait
-boot			/boot		mtd	defaults		length=4456448
-cache			/cache		yaffs2	nosuid,nodev		length=67108864,wait
-userdata		/data		yaffs2	nosuid,nodev		length=209190912,wait
-misc			/misc		mtd	defaults		length=262144
-recovery		/recovery	mtd	defaults		length=5242880
-/dev/block/mmcblk0p1	/sdcard		auto	defaults		recoveryonly
-/dev/block/mmcblk0p2	/sd-ext		auto	defaults		recoveryonly
-/devices/platform/msm_sdcc.1/mmc_host/mmc0	/storage/sdcard0	auto	defaults	voldmanaged=sdcard:auto
+/dev/block/mtdblock8	/cache		yaffs2	nosuid,nodev		recoveryonly
+/dev/block/mtdblock9	/data		yaffs2	nosuid,nodev		recoveryonly
+/dev/block/mtdblock1	/system		yaffs2	defaults		recoveryonly
+boot			/boot		mtd	defaults		recoveryonly
+misc			/misc		mtd	defaults		recoveryonly
+recovery		/recovery	mtd	defaults		recoveryonly
+/dev/block/mmcblk0p2	/sd-ext		ext4	defaults		recoveryonly
+/dev/block/mmcblk0p1	/sdcard		vfat	defaults		recoveryonly
+
+/sys/devices/platform/msm_sdcc.1/mmc_host/mmc0	/storage/sdcard0	vfat	defaults	voldmanaged=sdcard:auto
+
+
+#mtd0: 00440000 00020000 "boot"
+#mtd1: 0be00000 00020000 "system"
+#mtd2: 00500000 00020000 "recovery"
+#mtd3: 002c0000 00020000 "lgdrm"
+#mtd4: 00100000 00020000 "splash"
+#mtd5: 00180000 00020000 "FOTABIN"
+#mtd6: 005c0000 00020000 "FOTA"
+#mtd7: 00040000 00020000 "misc"
+#mtd8: 04000000 00020000 "cache"
+#mtd9: 0c780000 00020000 "userdata"
