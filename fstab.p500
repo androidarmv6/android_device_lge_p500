@@ -7,9 +7,9 @@ system			/system		yaffs2	defaults		recoveryonly
 boot			/boot		mtd	defaults		recoveryonly
 misc			/misc		mtd	defaults		recoveryonly
 recovery		/recovery	mtd	defaults		recoveryonly
-/dev/block/mmcblk0p2	/sd-ext		ext4	defaults		recoveryonly
+/dev/block/mmcblk0p2	/sd-ext		auto	defaults		recoveryonly
 
-/devices/platform/msm_sdcc.1/mmc_host/mmc0	/storage/sdcard0	vfat	defaults	voldmanaged=sdcard0:auto
+/devices/platform/msm_sdcc.1/mmc_host/mmc0	auto	auto	defaults	voldmanaged=sdcard0:auto
 
 
 #mtd0: 00440000 00020000 "boot"
