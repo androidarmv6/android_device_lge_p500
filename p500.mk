@@ -44,10 +44,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/chargemode/chargerlogo:root/sbin/chargerlogo
 endif
 
-# USBMS for recovery
-PRODUCT_COPY_FILES += \
-    device/lge/msm7x27-common/rootdir/etc/init.qcom.usb.rc:root/init.recovery.p500.rc
-
 # P500 bluetooth vendor configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
