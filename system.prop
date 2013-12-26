@@ -21,9 +21,6 @@ mobiledata.interfaces=rmnet0,rmnet1,rmnet2
 # Bluetooth path
 ro.bt.bdaddr_path=/data/misc/bd_addr
 
-# See also: init.qcom.usb.rc and init.qcom.post_boot.sh
-persist.sys.usb.config=mass_storage,adb
-
 # OpenGL Graphics
 ro.opengles.version=131072
 
