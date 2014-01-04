@@ -30,7 +30,6 @@ OUTDIR=vendor/$VENDOR/$DEVICE
 PRODUCT_COPY_FILES += \\
     $OUTDIR/proprietary/lib/libmmipl.so:obj/lib/libmmipl.so \\
     $OUTDIR/proprietary/lib/libmmjpeg.so:obj/lib/libmmjpeg.so \\
-    $OUTDIR/proprietary/lib/libcamera.so:obj/lib/libcamera.so \\
     $OUTDIR/proprietary/lib/liboemcamera.so:obj/lib/liboemcamera.so
 
 
