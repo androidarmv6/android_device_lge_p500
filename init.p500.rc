@@ -3,6 +3,7 @@ import init.qcom.rc
 
 on fs
     mount_all /fstab.p500
+    swapon_all /fstab.p500
 
 on boot
     ## VIBRATOR
@@ -21,6 +22,9 @@ on boot
     chmod 0664 /sys/class/leds/lcd-backlight/alc
     chown system system /sys/devices/platform/mddi_hitachi_hvga.10/lcd_onoff
     chmod 0664 /sys/devices/platform/mddi_hitachi_hvga.10/lcd_onoff
+
+    ## zRAM
+    write /proc/sys/vm/page-cluster 0
 
 service ami304d /system/bin/ami304d
     class main
