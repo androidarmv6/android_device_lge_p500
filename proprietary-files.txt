@@ -40,6 +40,7 @@ lib/libsnd.so
 lib/libaudioeq.so
 
 ## CAMERA
+lib/libcamera.so
 lib/liboemcamera.so
 lib/libmmjpeg.so
 lib/libmmipl.so
