@@ -68,7 +68,7 @@ PRODUCT_MODEL := LG-P500
 PRODUCT_MANUFACTURER := LGE
 
 PRODUCT_AAPT_PREF_CONFIG := mdpi
-$(call inherit-product, device/mdpi-common/mdpi.mk)
+#$(call inherit-product, device/mdpi-common/mdpi.mk)
 
 # P500 overlays (Most specific last)
 DEVICE_PACKAGE_OVERLAYS += device/lge/p500/overlay
