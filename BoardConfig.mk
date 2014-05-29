@@ -10,6 +10,7 @@ else
 # Real recovery size
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00500000
 TARGET_KERNEL_CONFIG := cyanogenmod_p500_recovery_defconfig
+MINIGZIP := $(shell which lzma)
 endif
 TARGET_BOOTLOADER_BOARD_NAME := p500
 TARGET_OTA_ASSERT_DEVICE := thunderg,p500
