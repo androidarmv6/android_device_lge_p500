@@ -1,2 +1,3 @@
-add_lunch_combo cm_p500-eng
-add_lunch_combo cm_p500-userdebug
+for i in eng userdebug user; do
+    add_lunch_combo cm_p500-${i}
+done
