@@ -11,6 +11,7 @@ BOARD_CHARGING_CMDLINE_NAME := "lge.reboot"
 BOARD_CHARGING_CMDLINE_VALUE := "pwroff"
 else
 TARGET_KERNEL_CONFIG := cyanogenmod_p500_recovery_defconfig
+MINIGZIP := $(shell which lzma)
 endif
 
 TARGET_BOOTLOADER_BOARD_NAME := p500
