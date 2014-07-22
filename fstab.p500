@@ -9,7 +9,7 @@ misc			/misc		mtd	defaults		recoveryonly
 recovery		/recovery	mtd	defaults		recoveryonly
 /dev/block/mmcblk0p2	/sd-ext		ext4	defaults		recoveryonly
 
-/devices/platform/msm_sdcc.1/mmc_host/mmc0	auto	vfat	defaults	voldmanaged=sdcard0:auto,noemulatedsd
+/devices/platform/msm_sdcc.1/mmc_host/mmc0	auto	auto	defaults	voldmanaged=sdcard0:auto,noemulatedsd
 /dev/block/zram0				none	swap	defaults	zramsize=50331648,swapprio=1
 
 #mtd0: 00440000 00020000 "boot"
