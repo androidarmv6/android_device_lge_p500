@@ -1,6 +1,8 @@
 [
  {
-   "repository": "android_kernel_lge_msm7x27-3.0.x",
+   "remote": "github",
+   "revision": "cm-11.0",
+   "repository": "hardlight/android_kernel_lge_msm7x27-3.0.x",
    "target_path": "kernel/lge/msm7x27-3.0.x"
  }, {
    "repository": "android_device_qcom_msm7x27",
