@@ -7,11 +7,10 @@ cache			/cache		yaffs2	nosuid,nodev		recoveryonly
 boot			/boot		mtd	defaults		recoveryonly
 misc			/misc		mtd	defaults		recoveryonly
 recovery		/recovery	mtd	defaults		recoveryonly
-
-/dev/block/mmcblk0p2   	/system         f2fs	ro,noatime,nosuid,nodev,discard,nodiratime,inline_xattr	wait
-/dev/block/mmcblk0p4    /data           f2fs    noatime,nosuid,nodev,discard,nodiratime,inline_xattr	wait
-
 #/dev/block/mmcblk0p2	/sd-ext		ext4	defaults		recoveryonly
+
+/dev/block/mmcblk0p2	/system		f2fs	ro,noatime,nosuid,nodev,discard,nodiratime,inline_xattr		wait
+/dev/block/mmcblk0p4	/data		f2fs	noatime,nosuid,nodev,discard,nodiratime,inline_xattr		wait
 
 /devices/platform/msm_sdcc.1/mmc_host/mmc0	auto	auto	defaults	voldmanaged=sdcard0:auto,noemulatedsd
 /dev/block/zram0				none	swap	defaults	zramsize=50331648,swapprio=1
@@ -26,3 +25,4 @@ recovery		/recovery	mtd	defaults		recoveryonly
 #mtd7: 00040000 00020000 "misc"
 #mtd8: 04000000 00020000 "cache"
 #mtd9: 0c780000 00020000 "userdata"
+
