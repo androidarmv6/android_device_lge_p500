@@ -5,6 +5,9 @@ on fs
     mount_all /fstab.p500
     swapon_all /fstab.p500
 
+    setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
+    setprop ro.crypto.fuse_sdcard true
+
 on boot
     ## VIBRATOR
     chmod 0660 /sys/class/timed_output/vibrator/amp
